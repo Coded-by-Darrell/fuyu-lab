@@ -81,19 +81,19 @@ const iconStyle = {
 };
 
 const imageOverlay =
-  "linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.75))";
+  "linear-gradient(to bottom, rgba(0,0,0,.25) 0%, transparent 40%, rgba(0,0,0,.65) 100%)";
 
 export function WhyJoin() {
   return (
     <section
       id="services"
-      className="relative h-screen max-h-screen overflow-hidden flex flex-col items-center justify-center"
+      className="relative min-h-screen md:h-screen md:max-h-screen overflow-hidden flex flex-col items-center justify-center py-12 md:py-0"
       style={{ scrollMarginTop: 0 }}
     >
       {/* Main content - max-w-6xl mx-auto, centered, scaled down 20% */}
-      <div className="relative w-full max-w-6xl mx-auto px-6 flex flex-col items-center justify-center flex-1 min-h-0 py-8">
+      <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-center flex-1 min-h-0 py-4 sm:py-8">
         {/* Header - 50% larger, more margin-bottom */}
-        <div className="flex-shrink-0 flex justify-center mt-16 mb-14">
+        <div className="flex-shrink-0 flex justify-center mt-6 md:mt-16 mb-4 md:mb-14">
           <div
             className="relative"
             style={{
@@ -106,27 +106,26 @@ export function WhyJoin() {
               width={630}
               height={176}
               className="h-auto object-contain w-full"
-              style={{ maxWidth: "min(585px, 50vw)" }}
+              style={{ maxWidth: "min(585px, 95vw)" }}
               unoptimized
             />
           </div>
         </div>
 
-        {/* Bento grid - gap-8, scale ~85% */}
-        <div className="flex-1 min-h-0 w-full max-w-6xl flex items-center justify-center">
+        {/* Bento grid - mobile: 5 equal square cards, no scroll; desktop: bento layout */}
+        <div className="flex-1 min-h-0 w-full max-w-6xl flex items-center justify-center overflow-hidden">
           <div
-            className="grid h-full max-h-[68vh] w-full grid-cols-1 sm:grid-cols-[2fr_1fr_1fr] grid-rows-6 sm:grid-rows-2 gap-8"
-            style={{ transform: "scale(0.85)", transformOrigin: "center" }}
+            className="grid grid-cols-2 sm:grid-cols-[2fr_1fr_1fr] grid-rows-3 sm:grid-rows-2 h-full max-h-[68vh] w-full gap-3 sm:gap-6 md:gap-8 sm:scale-[0.85] sm:origin-center max-w-[min(560px,90vw,calc((100vh-286px)*2/3))] sm:max-w-none mx-auto"
           >
-            {/* Left card - ~50% width, row-span-2, tall vertical */}
+            {/* Mentorship - mobile: 2x2 grid; desktop: row-span-2, tall vertical */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="col-span-1 row-span-2 sm:row-span-2 h-full min-h-0"
+              className="col-span-1 row-span-1 sm:col-span-1 sm:row-span-2 min-w-0 aspect-square sm:aspect-auto sm:h-full sm:min-h-0"
             >
               <div
-                className="services-card relative h-full w-full overflow-hidden rounded-xl"
+                className="services-card relative h-full w-full overflow-hidden rounded-xl aspect-square sm:aspect-auto"
                 style={cardBaseStyle}
               >
                 <Image
@@ -140,7 +139,7 @@ export function WhyJoin() {
                   className="absolute inset-0"
                   style={{
                     background:
-                      "linear-gradient(to bottom, rgba(0,0,0,.35) 0%, transparent 40%, transparent 50%, rgba(0,0,0,.75) 100%)",
+                      "linear-gradient(to bottom, rgba(0,0,0,.25) 0%, transparent 45%, rgba(0,0,0,.65) 100%)",
                   }}
                   aria-hidden
                 />
@@ -163,7 +162,7 @@ export function WhyJoin() {
                   </h3>
                   <div className="h-px bg-white/50 my-2" aria-hidden />
                   <p
-                    className="text-sm leading-[1.5]"
+                    className="text-sm leading-[1.5] line-clamp-3 sm:line-clamp-none"
                     style={{ color: "rgba(255,255,255,.9)" }}
                   >
                     Elevate your trading game through our live mentorship sessions
@@ -175,7 +174,7 @@ export function WhyJoin() {
               </div>
             </motion.div>
 
-            {/* Right - 2x2 smaller cards, perfect squares */}
+            {/* Right - smaller cards; mobile: 2x2 grid, same square size */}
             {smallCards.map((card, i) => (
               <motion.div
                 key={card.title}
@@ -183,7 +182,7 @@ export function WhyJoin() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="h-full min-h-0 w-full aspect-square"
+                className={`col-span-1 row-span-1 min-w-0 aspect-square sm:h-full sm:min-h-0 ${i === 3 ? "col-span-2 sm:col-span-1 justify-self-center w-[calc(50%-6px)] sm:w-full" : ""}`}
               >
                 <div
                   className="services-card relative h-full w-full overflow-hidden rounded-xl aspect-square"

@@ -38,12 +38,12 @@ export function Events() {
   return (
     <section
       id="events"
-      className="relative h-screen min-h-[600px] flex flex-col overflow-hidden"
+      className="relative min-h-screen md:h-screen md:min-h-[600px] flex flex-col overflow-hidden py-8 md:py-4"
       style={{
         paddingTop: 16,
         paddingBottom: 40,
-        paddingLeft: 24,
-        paddingRight: 24,
+        paddingLeft: 16,
+        paddingRight: 16,
         scrollMarginTop: 88,
       }}
     >
@@ -70,8 +70,7 @@ export function Events() {
               alt="EVENTS"
               width={240}
               height={90}
-              className="h-auto object-contain"
-              style={{ width: "min(240px, 22vw)" }}
+              className="h-auto object-contain w-[min(240px,85vw)] sm:w-[min(240px,22vw)]"
               unoptimized
             />
           </div>
@@ -82,18 +81,15 @@ export function Events() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="flex-shrink-0 flex justify-center"
-          style={{ gap: 10, marginBottom: 24 }}
+          className="flex-shrink-0 flex justify-center flex-wrap gap-2 sm:gap-[10px]"
+          style={{ marginBottom: 24 }}
         >
           {tabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className="rounded-full text-sm font-medium transition-all flex items-center"
+              className="rounded-full text-xs sm:text-sm font-medium transition-all flex items-center min-h-[38px] px-4 sm:px-[18px]"
               style={{
-                height: 38,
-                paddingLeft: 18,
-                paddingRight: 18,
                 ...(activeTab === tab
                   ? {
                       backgroundColor: "#AFFC6D",
@@ -114,7 +110,7 @@ export function Events() {
 
         {/* Cards — aligned to top so View More stays visible */}
         <div
-          className="flex-1 min-h-0 w-full flex flex-wrap justify-center gap-8 md:gap-12 items-start"
+          className="flex-1 min-h-0 w-full flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-12 items-start"
           style={{ maxWidth: 1240, margin: "0 auto" }}
         >
           {eventSchedules.map((schedule, i) => (
@@ -134,7 +130,7 @@ export function Events() {
                 width={340}
                 height={486}
                 className="block object-contain w-full h-auto"
-                style={{ maxWidth: 340, maxHeight: "min(400px, calc(100vh - 280px))" }}
+                style={{ maxWidth: 340, maxHeight: "min(400px, calc(100vh - 320px))" }}
                 unoptimized
                 sizes="(max-width: 768px) 100vw, 340px"
               />
@@ -147,8 +143,7 @@ export function Events() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex-shrink-0 flex justify-center"
-          style={{ marginTop: 20, marginBottom: 100}}
+          className="flex-shrink-0 flex justify-center mt-4 mb-10 sm:mb-[100px]"
         >
           <a
             href="#"

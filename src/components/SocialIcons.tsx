@@ -28,13 +28,13 @@ const icons = {
 
 export function SocialIcons() {
   return (
-    <div className="flex items-center gap-6">
+    <div className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center">
       {(["discord", "twitter", "telegram", "instagram", "youtube"] as const).map(
         (icon) => (
           <a
             key={icon}
             href="#"
-            className="w-10 h-10 rounded-full bg-[#0a0a0b]/20 flex items-center justify-center text-[#0a0a0b] hover:bg-[#0a0a0b]/30 transition-colors"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0a0a0b]/20 flex items-center justify-center text-[#0a0a0b] hover:bg-[#0a0a0b]/30 transition-colors min-w-[44px] min-h-[44px]"
             aria-label={icon}
           >
             {icons[icon]}

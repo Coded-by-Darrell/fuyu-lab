@@ -32,10 +32,8 @@ export function Merch() {
   return (
     <section
       id="merch"
-      className="min-h-screen px-4"
+      className="min-h-screen px-4 sm:px-6 py-8 sm:py-12"
       style={{
-        paddingTop: 48,
-        paddingBottom: 80,
         scrollMarginTop: 88,
       }}
     >
@@ -45,14 +43,14 @@ export function Merch() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-10 flex justify-center"
+          className="mb-6 sm:mb-10 flex justify-center"
         >
           <Image
             src="/assets/merch-heading.png"
             alt="MERCH"
             width={250}
             height={100}
-            className="w-full max-w-[250px] h-auto object-contain"
+            className="w-full max-w-[200px] sm:max-w-[250px] h-auto object-contain"
           />
         </motion.div>
 
@@ -65,7 +63,7 @@ export function Merch() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative rounded-xl overflow-hidden aspect-square max-h-[280px] sm:max-h-[320px]"
+              className="relative rounded-xl overflow-hidden aspect-square max-h-[260px] sm:max-h-[320px] mx-auto sm:mx-0 w-full max-w-[280px] sm:max-w-none"
               style={{
                 border: "1px solid rgba(255,255,255,0.15)",
                 boxShadow: "0 2px 12px rgba(0,0,0,0.2)",

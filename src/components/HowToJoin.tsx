@@ -7,13 +7,7 @@ const steps = [
   {
     number: "1",
     title: "Register Via OKX",
-    description: (
-      <>
-        Sign up using our exclusive OKX{" "}
-        <br />
-        referral link to start your journey.
-      </>
-    ),
+    description: "Sign up using our exclusive OKX referral link to start your journey.",
     links: [
       { label: "OKX REFERRAL LINK", href: "https://www.okx.com" },
     ],
@@ -21,13 +15,7 @@ const steps = [
   {
     number: "2",
     title: "Fund Your Account",
-    description: (
-      <>
-        Deposit $100 to your OKX account{" "}
-        <br />
-        to get started.
-      </>
-    ),
+    description: "Deposit $100 to your OKX account to get started.",
     links: [
       { label: "HOW TO BUY USDT", href: "https://www.okx.com" },
       { label: "HOW TO DEPOSIT", href: "https://www.okx.com" },
@@ -36,15 +24,7 @@ const steps = [
   {
     number: "3",
     title: "Join Fuyu Lab",
-    description: (
-      <>
-        Join our Discord community and send a ticket{" "}
-        <br />
-        with your Discord name and OKX{" "}
-        <br />
-        UID to the #help-desk.
-      </>
-    ),
+    description: "Join our Discord community and send a ticket with your Discord name and OKX UID to the #help-desk.",
     descriptionClassName: "max-w-[320px]",
     links: [
       { label: "DISCORD LINK", href: "https://discord.gg" },
@@ -54,14 +34,14 @@ const steps = [
 
 export function HowToJoin() {
   return (
-    <section id="how-to-join" className="relative py-24 px-4 overflow-hidden font-sans">
+    <section id="how-to-join" className="relative py-16 sm:py-24 px-4 sm:px-6 overflow-hidden font-sans">
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Sticker heading - constrained size to avoid pixelation */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-20 flex justify-center"
+          className="mb-12 sm:mb-20 flex justify-center px-2"
         >
           <Image
             src="/assets/image-fbae4c26-6882-4d65-b09b-63448c3a7af7.png"
@@ -69,7 +49,7 @@ export function HowToJoin() {
             width={520}
             height={120}
             className="h-auto w-full object-contain"
-            style={{ maxWidth: "min(420px, 40vw)" }}
+            style={{ maxWidth: "min(420px, 90vw)" }}
             unoptimized
           />
         </motion.div>
@@ -87,7 +67,7 @@ export function HowToJoin() {
             }}
           />
 
-          <div className="grid md:grid-cols-3 gap-12 md:gap-8">
+          <div className="grid md:grid-cols-3 gap-10 sm:gap-12 md:gap-8">
             {steps.map((step, i) => (
               <motion.div
                 key={step.number}
@@ -113,7 +93,7 @@ export function HowToJoin() {
                 <h3 className="text-xl font-bold text-white mb-3">
                   {step.title}
                 </h3>
-                <p className={`text-white text-sm font-normal leading-relaxed mb-4 ${(step as { descriptionClassName?: string }).descriptionClassName ?? "max-w-[280px]"}`}>
+                <p className={`text-white text-sm font-normal leading-relaxed mb-4 mx-auto ${(step as { descriptionClassName?: string }).descriptionClassName ?? "max-w-[280px]"}`}>
                   {step.description}
                 </p>
                 <div className="flex flex-col gap-2 items-center">
@@ -145,7 +125,7 @@ export function HowToJoin() {
           <a
             href="/"
             onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
-            className="inline-flex items-center justify-center px-12 py-4 rounded-full font-bold text-base text-[#0a0a0b] uppercase tracking-wide transition-opacity hover:opacity-95"
+            className="inline-flex items-center justify-center px-8 sm:px-12 py-3.5 sm:py-4 rounded-full font-bold text-sm sm:text-base text-[#0a0a0b] uppercase tracking-wide transition-opacity hover:opacity-95"
             style={{
               backgroundColor: "#AFFC6D",
               boxShadow: "0 0 20px rgba(175,252,109,0.3), 0 0 40px rgba(175,252,109,0.15)",
