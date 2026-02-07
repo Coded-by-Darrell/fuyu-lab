@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-green: #a6ff4d;
+  --color-hot-red: #ff4d4d;
+  --color-bg-dark: #0a0a0b;
+  --color-bg-darker: #050506;
+  --radius-card: 1rem;
+  --radius-card-lg: 1.75rem;
+  --radius-pill: 9999px;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  body {
+    @apply antialiased;
+    background: linear-gradient(180deg, #050506 0%, #0a0a0b 30%, #0d0d0f 70%, #050506 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+@keyframes cta-pulse {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(166, 255, 77, 0.5), 0 0 60px rgba(166, 255, 77, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(166, 255, 77, 0.6), 0 0 80px rgba(166, 255, 77, 0.3);
+  }
+}
+
+.animate-cta-pulse {
+  animation: cta-pulse 2s ease-in-out infinite;
+}
+
+/* Hero animated background - breathing effect */
+@keyframes hero-breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes hero-breathe-slow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.95;
+  }
+}
+
+.hero-blob-1 {
+  animation: hero-breathe 5s ease-in-out infinite;
+}
+
+.hero-blob-2 {
+  animation: hero-breathe-slow 6s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+/* Partners marquee - seamless infinite loop right to left */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Services / WhyJoin section */
+.services-section {
+  --neon: #AFFC6D;
+  --neon-rgb: 175, 252, 109;
+}
+
+.services-card {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.services-card:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow:
+    0 0 0 1px rgba(175, 252, 109, 0.4),
+    0 0 24px rgba(175, 252, 109, 0.3),
+    0 0 48px rgba(175, 252, 109, 0.15),
+    0 18px 50px rgba(0, 0, 0, 0.8);
+}
+
