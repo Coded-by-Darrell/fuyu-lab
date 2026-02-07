@@ -11,28 +11,61 @@ export function Footer() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="bg-[#A6FF4D] py-12 px-6"
+        className="bg-[#A6FF4D] py-12 px-6 rounded-t-[48px] md:rounded-t-[56px] relative"
       >
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 items-center gap-8">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2">
+          <a href="/" onClick={(e) => { e.preventDefault(); document.getElementById("home")?.scrollIntoView({ behavior: "smooth" }); }} className="flex items-center justify-center md:justify-start shrink-0 overflow-visible order-1 md:order-none">
             <Image
-              src="/logo-dark.svg"
+              src="/assets/logo-fuyu-lab.png"
               alt="Fuyu Lab"
-              width={48}
-              height={48}
-              className="object-contain"
+              width={200}
+              height={64}
+              className="h-12 md:h-14 w-auto object-contain scale-150 md:scale-[1.75] origin-center"
+              unoptimized
             />
-            <span className="font-bold text-[#0a0a0b] text-xl">Fuyu Lab</span>
           </a>
 
-          {/* Social icons */}
-          <SocialIcons />
+          {/* Middle: 3 images + text — centered in middle column */}
+          <div className="flex flex-col items-center justify-center gap-4 order-2 md:order-none">
+            <div className="flex items-center gap-4 md:gap-6">
+              <Image
+                src="/assets/footer-circle-shark.png"
+                alt=""
+                width={72}
+                height={72}
+                className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-2 border-[#0a0a0b]/20"
+                unoptimized
+              />
+              <Image
+                src="/assets/footer-circle-person.png"
+                alt=""
+                width={72}
+                height={72}
+                className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-2 border-[#0a0a0b]/20"
+                unoptimized
+              />
+              <Image
+                src="/assets/footer-circle-fractal.png"
+                alt=""
+                width={72}
+                height={72}
+                className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-2 border-[#0a0a0b]/20"
+                unoptimized
+              />
+            </div>
+            <p className="text-[#0a0a0b]/80 text-sm font-medium text-center max-w-xs">
+              Become a part of our thriving <strong>community</strong>.
+            </p>
+          </div>
 
-          {/* Description */}
-          <p className="text-[#0a0a0b]/80 text-sm font-medium text-center md:text-right max-w-xs">
-            Become part of our trading community.
-          </p>
+          {/* Right: text centered above icons */}
+          <div className="flex flex-col items-center gap-3 justify-center order-3 md:order-none">
+            <p className="text-[#0a0a0b]/80 text-sm font-medium text-center">
+              Get in touch with me.
+            </p>
+            <SocialIcons />
+          </div>
         </div>
       </motion.div>
     </footer>

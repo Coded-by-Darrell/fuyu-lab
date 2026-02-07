@@ -1,11 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-geist-sans",
-});
 
 export const metadata: Metadata = {
   title: "Fuyu Lab | Learn, Trade, Glow",
@@ -19,8 +13,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="font-sans text-white bg-[#050506]">{children}</body>
+    <html lang="en">
+      <head>
+        <link
+          rel="preload"
+          href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Variable.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+      </head>
+      <body className="font-sans text-white bg-[#050506]" style={{ fontFamily: '"Geist Sans", ui-sans-serif, system-ui, sans-serif' }}>
+        {children}
+      </body>
     </html>
   );
 }

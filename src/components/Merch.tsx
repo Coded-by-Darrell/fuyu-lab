@@ -3,37 +3,52 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+/* Bright green padlock icon — matches design spec */
+function PadlockIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden
+    >
+      <path
+        fillRule="evenodd"
+        d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v2.25a3 3 0 003 3h10.5a3 3 0 003-3v-2.25a3 3 0 00-3-3v-3A5.25 5.25 0 0012 1.5zM9.75 6.75a2.25 2.25 0 114.5 0v3h-4.5v-3z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
 const products = [
-  {
-    name: "Live with the Flow Tee",
-    description: "Beige/Off-white",
-    color: "bg-pink-400/30",
-  },
-  {
-    name: "Bucket Hat",
-    description: "Black with neon accents",
-    color: "bg-pink-300/20",
-  },
-  {
-    name: "Black Logo Tee",
-    description: "Classic black",
-    color: "bg-[#A6FF4D]/20",
-  },
+  { name: "Live with the Flow Tee", image: "/assets/merch-live-with-the-flow-tee.png" },
+  { name: "Bucket Hat", image: "/assets/merch-bucket-hat.png" },
+  { name: "Black Logo Tee", image: "/assets/merch-black-logo-tee.png" },
 ];
 
 export function Merch() {
   return (
-    <section id="merch" className="py-24 px-4">
+    <section
+      id="merch"
+      className="min-h-screen px-4"
+      style={{
+        paddingTop: 48,
+        paddingBottom: 80,
+        scrollMarginTop: 88,
+      }}
+    >
       <div className="max-w-6xl mx-auto">
-        {/* Sticker heading */}
+        {/* MERCH title — centered, design spec */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16 flex justify-center"
+          className="mb-10 flex justify-center"
         >
           <Image
-            src="/assets/image-26e2ed11-c69f-46d8-b1ff-8e5ef649b315.png"
+            src="/assets/merch-heading.png"
             alt="MERCH"
             width={250}
             height={100}
@@ -41,8 +56,8 @@ export function Merch() {
           />
         </motion.div>
 
-        {/* Product cards */}
-        <div className="grid sm:grid-cols-3 gap-8 mb-12">
+        {/* Product cards — exact design: image fill, padlock top-right, subtle border */}
+        <div className="grid sm:grid-cols-3 gap-6 md:gap-8 mb-8">
           {products.map((product, i) => (
             <motion.div
               key={product.name}
@@ -50,32 +65,32 @@ export function Merch() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              whileHover={{
-                scale: 1.02,
-                boxShadow: "0 0 50px rgba(166,255,77,0.3)",
-              }}
-              className="rounded-[24px] overflow-hidden p-8 aspect-square flex flex-col items-center justify-center relative"
+              className="relative rounded-xl overflow-hidden aspect-square max-h-[280px] sm:max-h-[320px]"
               style={{
-                background:
-                  "linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)",
-                border: "1px solid rgba(166,255,77,0.3)",
-                boxShadow: "0 0 40px rgba(166,255,77,0.1)",
+                border: "1px solid rgba(255,255,255,0.15)",
+                boxShadow: "0 2px 12px rgba(0,0,0,0.2)",
               }}
             >
-              <div
-                className={`absolute inset-4 rounded-2xl ${product.color} opacity-50`}
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 640px) 100vw, 33vw"
+                unoptimized
               />
-              <div className="relative z-10 text-center">
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-white/10 flex items-center justify-center text-4xl">
-                  👕
-                </div>
-                <h3 className="font-bold text-white mb-2">{product.name}</h3>
-                <p className="text-white/60 text-sm">{product.description}</p>
+              {/* Padlock icon — top-right, bright green, per design */}
+              <div
+                className="absolute top-3 right-3 z-10 w-6 h-6 text-[#AFFC6D] drop-shadow-md"
+                aria-hidden
+              >
+                <PadlockIcon className="w-full h-full" />
               </div>
             </motion.div>
           ))}
         </div>
 
+        {/* Learn More button — centered, lime green, per design */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -83,12 +98,13 @@ export function Merch() {
           className="flex justify-center"
         >
           <motion.a
-            href="#contact"
+            href="/"
+            onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[#A6FF4D] text-[#0a0a0b] font-bold"
             style={{
-              boxShadow: "0 0 30px rgba(166,255,77,0.4)",
+              boxShadow: "0 2px 12px rgba(166,255,77,0.4)",
             }}
           >
             Learn More

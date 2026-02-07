@@ -6,29 +6,57 @@ import Image from "next/image";
 const steps = [
   {
     number: "1",
-    title: "Register via OKX",
-    description:
-      "Create a new OKX account through our exclusive link. Complete verification to get started.",
+    title: "Register Via OKX",
+    description: (
+      <>
+        Sign up using our exclusive OKX{" "}
+        <br />
+        referral link to start your journey.
+      </>
+    ),
+    links: [
+      { label: "OKX REFERRAL LINK", href: "https://www.okx.com" },
+    ],
   },
   {
     number: "2",
-    title: "Fund your account",
-    description:
-      "Deposit the required minimum trading capital to qualify for Fuyu Lab membership.",
+    title: "Fund Your Account",
+    description: (
+      <>
+        Deposit $100 to your OKX account{" "}
+        <br />
+        to get started.
+      </>
+    ),
+    links: [
+      { label: "HOW TO BUY USDT", href: "https://www.okx.com" },
+      { label: "HOW TO DEPOSIT", href: "https://www.okx.com" },
+    ],
   },
   {
     number: "3",
-    title: "Join Fuyu Lab Discord",
-    description:
-      "Verify your OKX account to gain access to our Discord community and all premium features.",
+    title: "Join Fuyu Lab",
+    description: (
+      <>
+        Join our Discord community and send a ticket{" "}
+        <br />
+        with your Discord name and OKX{" "}
+        <br />
+        UID to the #help-desk.
+      </>
+    ),
+    descriptionClassName: "max-w-[320px]",
+    links: [
+      { label: "DISCORD LINK", href: "https://discord.gg" },
+    ],
   },
 ];
 
 export function HowToJoin() {
   return (
-    <section className="py-24 px-4">
-      <div className="max-w-6xl mx-auto">
-        {/* Sticker heading */}
+    <section id="how-to-join" className="relative py-24 px-4 overflow-hidden font-sans">
+      <div className="relative z-10 max-w-6xl mx-auto">
+        {/* Sticker heading - constrained size to avoid pixelation */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -38,9 +66,11 @@ export function HowToJoin() {
           <Image
             src="/assets/image-fbae4c26-6882-4d65-b09b-63448c3a7af7.png"
             alt="HOW CAN I BECOME PART OF FUYU LAB?"
-            width={700}
-            height={140}
-            className="w-full max-w-2xl h-auto object-contain"
+            width={520}
+            height={120}
+            className="h-auto w-full object-contain"
+            style={{ maxWidth: "min(420px, 40vw)" }}
+            unoptimized
           />
         </motion.div>
 
@@ -50,8 +80,8 @@ export function HowToJoin() {
           <div
             className="absolute top-12 left-0 right-0 h-1 hidden md:block"
             style={{
-              background: "linear-gradient(90deg, #A6FF4D 0%, #A6FF4D 100%)",
-              boxShadow: "0 0 20px rgba(166,255,77,0.5)",
+              background: "linear-gradient(90deg, #AFFC6D 0%, #AFFC6D 100%)",
+              boxShadow: "0 0 20px rgba(175,252,109,0.5)",
               marginLeft: "16.666%",
               marginRight: "16.666%",
             }}
@@ -69,26 +99,61 @@ export function HowToJoin() {
               >
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="w-24 h-24 rounded-full flex items-center justify-center mb-6 relative z-10 bg-[#A6FF4D]"
+                  className="w-24 h-24 rounded-full flex items-center justify-center mb-6 relative z-10"
                   style={{
+                    backgroundColor: "#AFFC6D",
                     boxShadow:
-                      "0 0 40px rgba(166,255,77,0.5), 0 0 80px rgba(166,255,77,0.2)",
+                      "0 0 40px rgba(175,252,109,0.5), 0 0 80px rgba(175,252,109,0.2)",
                   }}
                 >
-                  <span className="text-3xl font-bold text-[#0a0a0b]">
+                  <span className="text-3xl font-bold text-white">
                     {step.number}
                   </span>
                 </motion.div>
                 <h3 className="text-xl font-bold text-white mb-3">
                   {step.title}
                 </h3>
-                <p className="text-white/70 text-sm leading-relaxed max-w-xs">
+                <p className={`text-white text-sm font-normal leading-relaxed mb-4 ${(step as { descriptionClassName?: string }).descriptionClassName ?? "max-w-[280px]"}`}>
                   {step.description}
                 </p>
+                <div className="flex flex-col gap-2 items-center">
+                  {step.links.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-normal text-white hover:text-[#AFFC6D] transition-colors inline-flex items-center gap-1 underline underline-offset-2 decoration-white hover:decoration-[#AFFC6D]"
+                    >
+                      {link.label}
+                      <span>→</span>
+                    </a>
+                  ))}
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
+
+        {/* CTA button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex justify-center mt-16"
+        >
+          <a
+            href="/"
+            onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
+            className="inline-flex items-center justify-center px-12 py-4 rounded-full font-bold text-base text-[#0a0a0b] uppercase tracking-wide transition-opacity hover:opacity-95"
+            style={{
+              backgroundColor: "#AFFC6D",
+              boxShadow: "0 0 20px rgba(175,252,109,0.3), 0 0 40px rgba(175,252,109,0.15)",
+            }}
+          >
+            JOIN FUYU LAB
+          </a>
+        </motion.div>
       </div>
     </section>
   );

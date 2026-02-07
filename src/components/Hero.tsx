@@ -8,59 +8,6 @@ export function Hero() {
       id="home"
       className="relative min-h-screen flex flex-col pt-24 px-6 sm:px-8 overflow-hidden"
     >
-      {/* Animated gradient background - green left, red right (not black) */}
-      <div className="absolute inset-0">
-        {/* Base: green on left → red/pink on right */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(90deg, #0f1a0a 0%, #1a2510 20%, #1a0f14 50%, #251018 80%, #1a0a10 100%)",
-          }}
-        />
-
-        {/* Vibrant lime green - left side, dominant */}
-        <div
-          className="absolute w-[900px] h-[900px] rounded-full blur-[120px] hero-blob-1"
-          style={{
-            top: "-20%",
-            left: "-25%",
-            background:
-              "radial-gradient(circle, rgba(175, 252, 109, 0.85) 0%, rgba(166, 255, 77, 0.6) 30%, rgba(120, 200, 60, 0.4) 50%, rgba(80, 150, 40, 0.2) 70%, transparent 90%)",
-          }}
-        />
-
-        {/* Vibrant red/pink - right side, dominant */}
-        <div
-          className="absolute w-[900px] h-[900px] rounded-full blur-[120px] hero-blob-2"
-          style={{
-            top: "-20%",
-            right: "-25%",
-            background:
-              "radial-gradient(circle, rgba(255, 80, 140, 0.85) 0%, rgba(255, 100, 160, 0.6) 30%, rgba(220, 60, 120, 0.4) 50%, rgba(180, 40, 90, 0.2) 70%, transparent 90%)",
-          }}
-        />
-
-        {/* Center blend - subtle overlap */}
-        <div
-          className="absolute inset-0 opacity-60"
-          style={{
-            background:
-              "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(166, 255, 77, 0.15) 0%, rgba(255, 80, 140, 0.15) 50%, transparent 70%)",
-          }}
-        />
-
-        {/* Smooth transition to black - fades as user scrolls toward Services */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-[50vh] pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.85) 70%, #000 100%)",
-          }}
-          aria-hidden
-        />
-      </div>
-
       {/* Content: left = mockup, right = text + buttons */}
       <div className="relative max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-start pt-4 pb-48 flex-1">
         {/* Left - Mobile + Tablet mockup - larger, centered in column */}
@@ -102,7 +49,8 @@ export function Hero() {
           {/* Two pill buttons - more spacing between */}
           <div className="flex flex-wrap gap-5">
             <a
-              href="#contact"
+              href="/"
+              onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold text-base transition-opacity hover:opacity-95"
               style={{ backgroundColor: "#AFFC6D", color: "#0a0a0b" }}
             >

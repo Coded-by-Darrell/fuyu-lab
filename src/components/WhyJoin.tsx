@@ -63,9 +63,9 @@ const smallCards = [
 
 
 const cardBaseStyle = {
-  border: "1px solid #AFFC6D",
+  border: "1px solid rgba(175,252,109,.6)",
   boxShadow:
-    "0 0 8px rgba(175,252,109,.2), 0 0 20px rgba(175,252,109,.12)",
+    "0 0 12px rgba(175,252,109,.35), 0 0 28px rgba(175,252,109,.2), inset 0 0 20px rgba(175,252,109,.03)",
   backdropFilter: "blur(4px)",
   background: "rgba(0,0,0,.65)",
 };
@@ -87,23 +87,13 @@ export function WhyJoin() {
   return (
     <section
       id="services"
-      className="relative h-screen max-h-screen overflow-hidden bg-black flex flex-col items-center justify-center"
+      className="relative h-screen max-h-screen overflow-hidden flex flex-col items-center justify-center"
       style={{ scrollMarginTop: 0 }}
     >
-      {/* Faint radial glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle at center, rgba(175,252,109,.05), transparent 60%)",
-        }}
-        aria-hidden
-      />
-
       {/* Main content - max-w-6xl mx-auto, centered, scaled down 20% */}
       <div className="relative w-full max-w-6xl mx-auto px-6 flex flex-col items-center justify-center flex-1 min-h-0 py-8">
         {/* Header - 50% larger, more margin-bottom */}
-        <div className="flex-shrink-0 flex justify-center mt-17 mb-14">
+        <div className="flex-shrink-0 flex justify-center mt-16 mb-14">
           <div
             className="relative"
             style={{
@@ -166,14 +156,15 @@ export function WhyJoin() {
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-3">
                   <h3
-                    className="text-sm font-extrabold text-white uppercase mb-0.5"
+                    className="text-base font-extrabold text-white uppercase"
                     style={{ letterSpacing: "0.03em", textShadow: "0 0 8px rgba(175,252,109,.2)" }}
                   >
                     Live Mentorship
                   </h3>
+                  <div className="h-px bg-white/50 my-2" aria-hidden />
                   <p
-                    className="text-xs leading-[1.45]"
-                    style={{ color: "rgba(255,255,255,.78)" }}
+                    className="text-sm leading-[1.5]"
+                    style={{ color: "rgba(255,255,255,.9)" }}
                   >
                     Elevate your trading game through our live mentorship sessions
                     and discussions. Connect with experienced traders, share
@@ -217,14 +208,15 @@ export function WhyJoin() {
                   </div>
                   <div className="absolute bottom-0 left-0 right-0 p-2.5">
                     <h3
-                      className="text-[11px] font-extrabold text-white uppercase mb-0.5"
+                      className="text-sm font-extrabold text-white uppercase"
                       style={{ letterSpacing: "0.03em", textShadow: "0 0 6px rgba(175,252,109,.2)" }}
                     >
                       {card.title}
                     </h3>
+                    <div className="h-px bg-white/50 my-1.5" aria-hidden />
                     <p
-                      className="text-[10px] leading-[1.3] line-clamp-2"
-                      style={{ color: "rgba(255,255,255,.78)" }}
+                      className="text-xs leading-[1.4] line-clamp-2"
+                      style={{ color: "rgba(255,255,255,.9)" }}
                     >
                       {card.description}
                     </p>

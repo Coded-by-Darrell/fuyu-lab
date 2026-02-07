@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+/* Geist Sans - loaded via jsDelivr CDN (reliable CORS for fonts) */
+@font-face {
+  font-family: "Geist Sans";
+  src: url("https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Variable.woff2")
+    format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-neon-green: #a6ff4d;
   --color-hot-red: #ff4d4d;
@@ -8,7 +18,7 @@
   --radius-card: 1rem;
   --radius-card-lg: 1.75rem;
   --radius-pill: 9999px;
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Geist Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
@@ -18,7 +28,7 @@
   }
   body {
     @apply antialiased;
-    background: linear-gradient(180deg, #050506 0%, #0a0a0b 30%, #0d0d0f 70%, #050506 100%);
+    background: #050506;
     min-height: 100vh;
     overflow-x: hidden;
   }
@@ -67,6 +77,12 @@
 .hero-blob-2 {
   animation: hero-breathe-slow 6s ease-in-out infinite;
   animation-delay: 0.5s;
+}
+
+/* HowToJoin red blob - right side only, breathing */
+.howtojoin-blob {
+  animation: hero-breathe-slow 6.5s ease-in-out infinite;
+  animation-delay: 0.3s;
 }
 
 /* Partners marquee - seamless infinite loop right to left */
