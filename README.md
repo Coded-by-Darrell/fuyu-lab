@@ -2,6 +2,8 @@
 
 A modern landing page for **Fuyu Lab** — a Discord trading community exclusively for those who sign up on OKX and BingX. A project under 365Icarus.
 
+**Learn. Trade. Glow.**
+
 ## Tech Stack
 
 - **Next.js 15** – React framework with App Router
@@ -72,3 +74,9 @@ src/
 npm run build
 npm start
 ```
+
+## Deploy
+
+Deploy to [Vercel](https://vercel.com) with one click:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Coded-by-Darrell/fuyu-lab)
