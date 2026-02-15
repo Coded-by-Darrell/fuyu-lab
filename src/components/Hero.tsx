@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 
 export function Hero() {
@@ -12,7 +13,7 @@ export function Hero() {
       <div className="relative max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 xl:gap-16 items-start pt-2 sm:pt-4 pb-4 sm:pb-48 flex-1">
         {/* Left - Mobile + Tablet mockup - larger, centered in column */}
         <div className="flex justify-center lg:justify-center order-2 lg:order-1">
-          <div className="relative w-full max-w-[260px] sm:max-w-[380px] lg:max-w-[480px]">
+          <div className="relative w-full max-w-[280px] sm:max-w-[360px] lg:max-w-[420px]">
             <Image
               src="/assets/hero-mockup.png"
               alt="Benefits of joining Fuyu Lab"
@@ -48,7 +49,7 @@ export function Hero() {
 
           {/* Two pill buttons - more spacing between */}
           <div className="flex flex-wrap gap-3 sm:gap-5 justify-center lg:justify-start">
-            <a
+            <Link
               href="/"
               onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
               className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-semibold text-sm sm:text-base transition-opacity hover:opacity-95"
@@ -68,7 +69,7 @@ export function Hero() {
                   d="M14 5l7 7m0 0l-7 7m7-7H3"
                 />
               </svg>
-            </a>
+            </Link>
 
             <a
               href="https://365icarus.com"

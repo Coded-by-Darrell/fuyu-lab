@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect } from "react";
@@ -69,7 +70,7 @@ export function Navbar() {
         }}
       >
         {/* Logo */}
-        <a
+        <Link
           href="/"
           onClick={(e) => {
             e.preventDefault();
@@ -85,12 +86,12 @@ export function Navbar() {
             height={48}
             className="h-8 sm:h-10 w-auto object-contain"
           />
-        </a>
+        </Link>
 
         {/* Desktop Nav Links */}
         <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.id}
               href="/"
               onClick={(e) => {
@@ -102,13 +103,13 @@ export function Navbar() {
               }`}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
         {/* Contact Button */}
         <div className="flex items-center gap-4">
-          <a
+          <Link
             href="/"
             onClick={(e) => {
               e.preventDefault();
@@ -121,7 +122,7 @@ export function Navbar() {
             }`}
           >
             CONTACT
-          </a>
+          </Link>
 
           {/* Mobile menu button */}
           <button
@@ -177,7 +178,7 @@ export function Navbar() {
             {/* Menu links */}
             <nav className="flex flex-col p-4 gap-1">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.id}
                   href="/"
                   onClick={(e) => {
@@ -190,9 +191,9 @@ export function Navbar() {
                   }`}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
-              <a
+              <Link
                 href="/"
                 onClick={(e) => {
                   e.preventDefault();
@@ -206,7 +207,7 @@ export function Navbar() {
                 }`}
               >
                 CONTACT
-              </a>
+              </Link>
             </nav>
           </motion.div>
         </>

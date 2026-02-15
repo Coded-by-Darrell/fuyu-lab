@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -95,18 +96,18 @@ export function Merch() {
           viewport={{ once: true }}
           className="flex justify-center"
         >
-          <motion.a
-            href="/"
-            onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[#A6FF4D] text-[#0a0a0b] font-bold"
-            style={{
-              boxShadow: "0 2px 12px rgba(166,255,77,0.4)",
-            }}
-          >
-            Learn More
-          </motion.a>
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <Link
+              href="/"
+              onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
+              className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[#A6FF4D] text-[#0a0a0b] font-bold"
+              style={{
+                boxShadow: "0 2px 12px rgba(166,255,77,0.4)",
+              }}
+            >
+              Learn More
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { SocialIcons } from "./SocialIcons";
@@ -15,7 +16,7 @@ export function Footer() {
       >
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 items-center gap-6 sm:gap-8">
           {/* Logo */}
-          <a href="/" onClick={(e) => { e.preventDefault(); document.getElementById("home")?.scrollIntoView({ behavior: "smooth" }); }} className="flex items-center justify-center md:justify-start shrink-0 overflow-visible order-1 md:order-none">
+          <Link href="/" onClick={(e) => { e.preventDefault(); document.getElementById("home")?.scrollIntoView({ behavior: "smooth" }); }} className="flex items-center justify-center md:justify-start shrink-0 overflow-visible order-1 md:order-none">
             <Image
               src="/assets/logo-fuyu-lab.png"
               alt="Fuyu Lab"
@@ -24,7 +25,7 @@ export function Footer() {
               className="h-10 sm:h-12 md:h-14 w-auto object-contain scale-125 sm:scale-150 md:scale-[1.75] origin-center"
               unoptimized
             />
-          </a>
+          </Link>
 
           {/* Middle: 3 images + text — centered in middle column */}
           <div className="flex flex-col items-center justify-center gap-4 order-2 md:order-none">

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -122,7 +123,7 @@ export function HowToJoin() {
           viewport={{ once: true }}
           className="flex justify-center mt-16"
         >
-          <a
+          <Link
             href="/"
             onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
             className="inline-flex items-center justify-center px-8 sm:px-12 py-3.5 sm:py-4 rounded-full font-bold text-sm sm:text-base text-[#0a0a0b] uppercase tracking-wide transition-opacity hover:opacity-95"
@@ -132,7 +133,7 @@ export function HowToJoin() {
             }}
           >
             JOIN FUYU LAB
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
